@@ -47,7 +47,7 @@ The second method:
 == Frequently Asked Questions ==
 
 = How can I report bugs or contribute to the plugin? =
-You can report bugs to aparat[at]alirezas.ir.
+All developments are happening on [plugin's GitHub repository](https://github.com/AlirezaSedghi/wp-aparat). You can use the [Issue Tracker](https://github.com/AlirezaSedghi/wp-aparat/issues) to report bugs and issues. You can also send your patches using GitHub Pull Requests feature.
 
 == Screenshots ==
 
