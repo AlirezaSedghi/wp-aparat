@@ -4,14 +4,14 @@ Tags: aparat, embed, video, آپارات
 Requires at least: 3.0.1
 Tested up to: 4.6.1
 Stable tag: 1.5
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: MIT License
+License URI: https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE
 
-Show a list of your Aparat channel's videos in your wordpress site.
+Show a list of your Aparat channel's videos in your WordPress site.
 
 == Description ==
 
-Aparat is one of the video sharing services in Iran. With this plugin you will possible add your aparat videos to posts / pages / widgets in WordPress or show a list of them in sidebar.
+Aparat is one of the video sharing services in Iran. With this plugin you will possibly add your aparat videos to posts / pages / widgets in WordPress or show a list of them in sidebar.
 
 Features include:
 
