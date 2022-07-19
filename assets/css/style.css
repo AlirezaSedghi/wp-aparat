@@ -1,0 +1,99 @@
+/*
+	Stylesheet of Aparat for Wordpress Plugin
+*/
+
+.wpaparat-box {
+	display: block;
+	clear: both;
+}
+.wpaparat-box .aparat-feed-item {
+	display: inline-block;
+	width: 100%;
+	clear: both;
+	margin-bottom: 0px;
+	list-style: none;
+	border-bottom: none;
+    padding-top: 5px;
+}
+.wpaparat-box .aparat-feed-item .aparat-feed-item-box {
+	float: left;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	width: 100%;
+}
+.rtl .wpaparat-box .aparat-feed-item .aparat-feed-item-box {
+	float: right;
+}
+.wpaparat-box .aparat-feed-item:last-child .aparat-feed-item-box {
+	border-bottom: none;
+}
+.wpaparat-box .aparat-item-figure {
+	float: left;
+	width: 35%;
+}
+.rtl .wpaparat-box .aparat-item-figure {
+	float: right;
+}
+.wpaparat-box .aparat-item-figure a.aparatimgbox {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	background-position: center;
+	background-size: 100%;
+}
+.wpaparat-box .aparat-item-figure a.aparatimgbox .aparat-video-duration {
+	color: #fff;
+	font-size: 10px;
+	position: absolute;
+	left: 5px;
+	bottom: 0;
+	text-decoration: none;
+}
+.wpaparat-box .aparat-item-figure a.aparatimgbox .aparat-video-ratio {
+    display: block !important;
+    padding-top: 57% !important;
+}
+.wpaparat-box .aparat-item-info {
+	float: right;
+	width: 61%;
+	margin-left: 2%;
+	border-bottom: 1px solid #313131;
+	padding-bottom: 16px;
+	min-height: 70px !important;
+}
+.rtl .wpaparat-box .aparat-item-info {
+	float: left;
+	margin-left: 0;
+	margin-right: 2%;
+}
+.wpaparat-box .aparat-item-info .aparat-item-name {
+	margin: 0;
+	font-size: 14px;
+    line-height: 12px;
+    text-align: justify;
+}
+.wpaparat-box .aparat-item-info .aparat-item-name a {
+	color: #414141;
+	font-family: IRANSans-Light-web;
+	font-size: 12px;
+    line-height: 1.5;
+}
+.wpaparat-box .aparat-item-info .aparat-item-pub-date {
+	font-weight: 900;
+    margin: 5px 0 0;
+    color: #a6a6a6;
+    font-size: 11px;
+	display: block;
+	margin: 5px 0 0;
+}
+.wpaparat-box .aparat-item-info .aparat-item-name a:hover {
+    color: #22a0b2;
+}
+.aparat-feed-item:last-child .aparat-item-info{
+    border-bottom:0;
+}
+.aparat-frame {
+	border: none !important;
+}
