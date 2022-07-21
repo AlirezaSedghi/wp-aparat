@@ -4,7 +4,7 @@
 Plugin Name: Aparat for WordPress
 Plugin URI: https://alirezasedghi.com/plugins/aparat-for-wordPress/
 Description: Show a list of your Aparat channel's videos in your WordPress site.
-Version: 2.0
+Version: 2.1.0
 Author: Alireza Sedghi
 Author URI: https://alirezasedghi.com
 Text Domain: wp-aparat
@@ -17,7 +17,7 @@ if ( !defined( 'ABSPATH' ) ) {
     die('Forbidden');
 }
 
-$wp_aparat_plugin_version = '2.0';
+$wp_aparat_plugin_version = '2.1.0';
 
 // Translation of plugin description
 $dummy_name = __( "Aparat for WordPress", "wp-aparat" );
