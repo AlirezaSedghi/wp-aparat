@@ -91,10 +91,10 @@ function wp_aparat_field_open_new_tab_cb($args) {
     $open_in_new_tab = get_wp_aparat_option_open_new_tab();
 ?>
     <select id="<?php echo esc_attr($args['label_for']); ?>" name="wpaparat_options[<?php echo esc_attr($args['label_for']); ?>]" style="min-width: 200px">
-        <option value="newtab" <?php selected($open_in_new_tab, 'newtab', false); ?>>
+        <option value="newtab" <?php selected($open_in_new_tab, true); ?>>
             <?php esc_html_e('Open links in a new tab', 'wp-aparat'); ?>
         </option>
-        <option value="self" <?php selected($open_in_new_tab, 'self', false); ?>>
+        <option value="self" <?php selected($open_in_new_tab, false); ?>>
             <?php esc_html_e('Open links in a same window', 'wp-aparat'); ?>
         </option>
     </select>
@@ -105,13 +105,13 @@ function wp_aparat_field_figure_size_cb($args) {
     $figure_size = get_wp_aparat_option_figure_size();
 ?>
     <select id="<?php echo esc_attr($args['label_for']); ?>" name="wpaparat_options[<?php echo esc_attr($args['label_for']); ?>]" style="min-width: 200px">
-        <option value="one-third" <?php selected($figure_size, 'one-third', false); ?>>
+        <option value="one-third" <?php selected($figure_size, 'one-third'); ?>>
             <?php esc_html_e('One Third', 'wp-aparat'); ?>
         </option>
-        <option value="half" <?php selected($figure_size, 'half', false); ?>>
+        <option value="half" <?php selected($figure_size, 'half'); ?>>
             <?php esc_html_e('Half', 'wp-aparat'); ?>
         </option>
-        <option value="full" <?php selected($figure_size, 'full', false); ?>>
+        <option value="full" <?php selected($figure_size, 'full'); ?>>
             <?php esc_html_e('Full', 'wp-aparat'); ?>
         </option>
     </select>

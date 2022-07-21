@@ -48,7 +48,7 @@ require_once('AparatWidget.php');
  */
 function wp_aparat_enqueue() {
     global $wp_aparat_plugin_url, $wp_aparat_plugin_version;
-    wp_enqueue_style( 'wp-aparat', $wp_aparat_plugin_url . "assets/css/wp-aparat.css", false, $wp_aparat_plugin_version );
+    wp_enqueue_style( 'wp-aparat', $wp_aparat_plugin_url . "assets/css/wp-aparat.min.css", false, $wp_aparat_plugin_version );
     wp_enqueue_script( 'wp-aparat', $wp_aparat_plugin_url . "assets/js/wp-aparat.min.js", array(), $wp_aparat_plugin_version, true );
 }
 add_action( 'wp_enqueue_scripts', 'wp_aparat_enqueue' );

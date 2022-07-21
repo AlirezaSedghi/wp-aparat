@@ -35,7 +35,7 @@ class wpAparat {
     public function getChannelData() {
         $transient_key = "wp-aparat-channel-" . $this->getChannelID();
         if ( false === ( $data = get_transient( $transient_key ) ) ) {
-            $response = wp_remote_get( esc_url_raw( "https://www.aparat.com/api/fa/v1/user/user/profilehome/username/" . $this->getChannelID() ), [ 'timeout' => 1, 'user-agent' => 'WordPress/WP-Aparat', 'headers' => array('Content-Type' => 'application/json') ] );
+            $response = wp_remote_get( esc_url_raw( "https://www.aparat.com/api/fa/v1/user/user/profilehome/username/" . $this->getChannelID() ), [ 'timeout' => 5, 'user-agent' => 'WordPress/WP-Aparat', 'headers' => array('Content-Type' => 'application/json') ] );
             if ( is_array( $response ) && ! is_wp_error( $response ) ) {
                 $response_body = wp_remote_retrieve_body( $response );
                 $response = json_decode( $response_body, true );

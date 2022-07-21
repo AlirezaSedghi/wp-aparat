@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Aparat for WordPress\n"
-"POT-Creation-Date: 2022-07-21 13:22+0430\n"
-"PO-Revision-Date: 2022-07-21 14:21+0430\n"
+"POT-Creation-Date: 2022-07-21 17:49+0430\n"
+"PO-Revision-Date: 2022-07-21 17:49+0430\n"
 "Last-Translator: \n"
 "Language-Team: HREF\n"
 "Language: fa_IR\n"
@@ -87,11 +87,11 @@ msgstr "بازکردن پیوند در همان صفحه"
 msgid "One Third"
 msgstr "یک سوم"
 
-#: aparat-admin.php:112 aparat.php:96
+#: aparat-admin.php:112 aparat.php:97
 msgid "Half"
 msgstr "یک دوم"
 
-#: aparat-admin.php:115 aparat.php:95
+#: aparat-admin.php:115 aparat.php:96
 msgid "Full"
 msgstr "کامل"
 
@@ -107,33 +107,37 @@ msgstr "نمایش لیستی از ویدیوهای کانال آپارات شم
 msgid "Alireza Sedghi"
 msgstr "علیرضا صدقی"
 
-#: aparat.php:90
+#: aparat.php:91
 msgid "add Aparat video"
 msgstr "افزودن ویدیوی آپارات"
 
-#: aparat.php:91
+#: aparat.php:92
 msgid "ID:"
 msgstr "شناسه:"
 
-#: aparat.php:92
+#: aparat.php:93
 msgid "Insert Aparat video ID:"
 msgstr "شناسه ویدیوی آپارات را درج کنید:"
 
-#: aparat.php:93
+#: aparat.php:94
 msgid "for example, the ID of https://www.aparat.com/v/13spN is: 13spN"
 msgstr "به‌عنوان مثال شناسه ویدیوی https://www.aparat.com/v/13spN عبارت است از: 13spN"
 
-#: aparat.php:94
+#: aparat.php:95
 msgid "Width:"
 msgstr "طول تصویر:"
 
-#: aparat.php:97
+#: aparat.php:98
 msgid "Select the width of the video."
 msgstr "اندازه نمایش ویدیو را انتخاب نمایید."
 
-#: aparat.php:98
+#: aparat.php:99
 msgid "The default width is full size"
 msgstr "اندازه پیش‌فرض: کامل"
+
+#: templates/widget-item.php:15
+msgid "visits"
+msgstr "بازدید"
 
 #~ msgid "Custom Thumbnail"
 #~ msgstr "تصویر دلخواه"

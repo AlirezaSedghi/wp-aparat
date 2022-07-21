@@ -19,7 +19,7 @@ function get_wp_aparat_option_open_new_tab($option = '') {
     if ( empty($option) )
         $option = get_wp_aparat_options();
 
-    return $wp_aparat_options["wpaparat_field_newtab"] ?? true;
+    return $option["wpaparat_field_newtab"] ?? true;
 }
 
 /**
@@ -32,7 +32,7 @@ function get_wp_aparat_option_image_width($option = '') {
     if ( empty($option) )
         $option = get_wp_aparat_options();
 
-    return $wp_aparat_options["wpaparat_field_width"] ?? 139;
+    return $option["wpaparat_field_width"] ?? 139;
 }
 
 /**
@@ -45,7 +45,7 @@ function get_wp_aparat_option_image_height($option = '') {
     if ( empty($option) )
         $option = get_wp_aparat_options();
 
-    return $wp_aparat_options["wpaparat_field_height"] ?? 78;
+    return $option["wpaparat_field_height"] ?? 78;
 }
 
 /**
@@ -59,7 +59,7 @@ function get_wp_aparat_option_figure_width($option = '') {
     if ( empty($option) )
         $option = get_wp_aparat_options();
 
-    return $wp_aparat_options["wpaparat_field_figurewidth"] ?? 35;
+    return $option["wpaparat_field_figurewidth"] ?? 35;
 }
 
 /**
@@ -72,7 +72,7 @@ function get_wp_aparat_option_figure_size($option = '') {
     if ( empty($option) )
         $option = get_wp_aparat_options();
 
-    return $wp_aparat_options["wpaparat_field_figure_size"] ?? 'one-third';
+    return $option["wpaparat_field_figure_size"] ?? 'one-third';
 }
 
 /**
@@ -85,7 +85,7 @@ function get_wp_aparat_option_custom_picture($option = '') {
     if ( empty($option) )
         $option = get_wp_aparat_options();
 
-    return $wp_aparat_options["wpaparat_field_custom_picture"] ?? '';
+    return $option["wpaparat_field_custom_picture"] ?? '';
 }
 
 /**
@@ -103,12 +103,12 @@ function wp_aparat_human_duration( $duration = 0 ) {
         $duration = $duration % 60;
 
         if ( $minutes < 60 ) {
-            return $minutes . ":" . str_pad($duration, 2, "0", STR_PAD_LEFT);
+            return str_pad($minutes, 2, "0", STR_PAD_LEFT) . ":" . str_pad($duration, 2, "0", STR_PAD_LEFT);
         }
         else {
             $hours = intval( $minutes / 60 );
             $minutes = $minutes % 60;
-            echo $hours . ":" . $minutes . ":" . str_pad($duration, 2, "0", STR_PAD_LEFT);
+            echo $hours . ":" . str_pad($minutes, 2, "0", STR_PAD_LEFT) . ":" . str_pad($duration, 2, "0", STR_PAD_LEFT);
         }
     }
     return '';

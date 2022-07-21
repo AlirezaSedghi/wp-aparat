@@ -38,8 +38,6 @@ class AparatWidget extends WP_Widget {
                 echo '<p>' . __( "Channel ID is incorrect or access to APARAT.com is currently unavailable.", "wp-aparat" ) . '</p>';
             }
             else {
-                echo '<ul id="wp-aparat" class="wp-aparat-box">';
-
                 $wp_aparat_options  = get_wp_aparat_options();
                 $open_in_new_tab	= get_wp_aparat_option_open_new_tab($wp_aparat_options);
                 $figure_width		= get_wp_aparat_option_figure_width($wp_aparat_options);
@@ -58,6 +56,8 @@ class AparatWidget extends WP_Widget {
                             break;
                     }
                 }
+
+                echo '<ul id="wp-aparat" class="wp-aparat-box' . ( ($figure_size == "full") ? " wp-aparat-full-box": '' ) . '">';
 
                 foreach ($lastVideos as $lastVideoIndex => $lastVideo) {
                     if ( ($lastVideo["type"] ?? '') == "Video" ) {
