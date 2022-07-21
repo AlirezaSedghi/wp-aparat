@@ -1,267 +1,122 @@
 <?php
 
-/* custom option and settings */
-function wpaparat_settings_init()
-{
-    register_setting('wpaparat', 'wpaparat_options', 'wpaparat_validation_function');
-    add_settings_section(
-        'wpaparat_option_section',
-        __('Widget option', 'wpaparat'),
-        'wpaparat_option_section_cb',
-        'wpaparat'
-    );
-    add_settings_field(
-        'wpaparat_field_newtab',
-        __('New Tab', 'wpaparat'),
-        'wpaparat_field_newtab_cb',
-        'wpaparat',
-        'wpaparat_option_section',
-        [
-            'label_for'		=> 'wpaparat_field_newtab',
-            'class'			=> 'wpaparat_row'
-        ]
-    );
-    add_settings_field(
-        'wpaparat_field_width',
-        __('Thumbnail Width', 'wpaparat'),
-        'wpaparat_field_width_cb',
-        'wpaparat',
-        'wpaparat_option_section',
-        [
-            'label_for'		=> 'wpaparat_field_width',
-            'class'			=> 'wpaparat_row'
-        ]
-    );
-    add_settings_field(
-        'wpaparat_field_height',
-        __('Thumbnail Height', 'wpaparat'),
-        'wpaparat_field_height_cb',
-        'wpaparat',
-        'wpaparat_option_section',
-        [
-            'label_for'		=> 'wpaparat_field_height',
-            'class'			=> 'wpaparat_row'
-        ]
-    );
-    add_settings_field(
-        'wpaparat_field_figurewidth',
-        __('Picture Width', 'wpaparat'),
-        'wpaparat_field_figurewidth_cb',
-        'wpaparat',
-        'wpaparat_option_section',
-        [
-            'label_for'		=> 'wpaparat_field_figurewidth',
-            'class'			=> 'wpaparat_row'
-        ]
-    );
-    add_settings_field(
-        'wpaparat_field_custom_picture',
-        __('Custom Thumbnail', 'wpaparat'),
-        'wpaparat_field_custom_picture_cb',
-        'wpaparat',
-        'wpaparat_option_section',
-        [
-            'label_for'		=> 'wpaparat_field_custom_picture',
-            'class'			=> 'wpaparat_row'
-        ]
-    );
+// Add WP Aparat admin menu
+function wp_aparat_options_page() {
+    add_menu_page( __( "Aparat for WordPress", "wp-aparat" ), __( "Aparat", "wp-aparat" ), 'manage_options', 'wp-aparat', 'wp_aparat_options_page_html', plugins_url('assets/images/icon.svg', __FILE__) );
 }
- 
- 
-/* register our wpaparat_settings_init to the admin_init action hook */
-add_action('admin_init', 'wpaparat_settings_init');
+add_action('admin_menu', 'wp_aparat_options_page');
 
-
-/**
- * custom option and settings:
- * callback functions
- */
-
-function wpaparat_option_section_cb($args)
-{
-    ?>
-    <!--p id="<?= esc_attr($args['id']); ?>"><?= esc_html__('Widget settings configuration', 'wpaparat'); ?></p-->
-    <?php
-}
- 
-function wpaparat_field_newtab_cb($args)
-{
-    $options = get_option('wpaparat_options');
-    ?>
-    <select id="<?= esc_attr($args['label_for']); ?>"
-            name="wpaparat_options[<?= esc_attr($args['label_for']); ?>]"
-    >
-        <option value="newtab" <?= isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], 'newtab', false)) : (''); ?>>
-            <?= esc_html_e('Open links in a new tab', 'wpaparat'); ?>
-        </option>
-        <option value="self" <?= isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], 'self', false)) : (''); ?>>
-            <?= esc_html_e('Open links in a same window', 'wpaparat'); ?>
-        </option>
-    </select>
-    <?php
-}
- 
-function wpaparat_field_width_cb($args)
-{
-    $options = get_option('wpaparat_options');
-    ?>
-    <input id="<?= esc_attr($args['label_for']); ?>"
-			type="number"
-            name="wpaparat_options[<?= esc_attr($args['label_for']); ?>]"
-			value="<?= isset($options[$args['label_for']]) ? $options[$args['label_for']] : ('139'); ?>"
-			min="100"
-			placeholder="<?= esc_html_e('Insert thumbnails width', 'wpaparat'); ?>"
-    />
-    <p class="description">
-        <?= esc_html_e('set your custom width of thumbnails. Default: 139', 'wpaparat'); ?>
-    </p>
-	<p class="description">
-        <?= esc_html_e("* note: this just increase the size of picture for better quality, and doesn't change the width of thumbnail in display!", 'wpaparat'); ?>
-    </p>
-	<script>
-		jQuery( "#wpaparat_field_width" ).on('keyup change', function(e) {
-			jQuery( "#wpaparat_field_height" ).val( parseInt(9 * jQuery( this ).val() / 16) );
-		});
-	</script>
-    <?php
-}
- 
-function wpaparat_field_height_cb($args)
-{
-    $options = get_option('wpaparat_options');
-    ?>
-    <input id="<?= esc_attr($args['label_for']); ?>"
-			type="text"
-            name="wpaparat_options[<?= esc_attr($args['label_for']); ?>]"
-			value="<?= isset($options[$args['label_for']]) ? $options[$args['label_for']] : ('78'); ?>"
-			onkeydown="return false"
-			style="background: transparent;border: none;box-shadow: none;-webkit-box-shadow: none;-moz-box-shadow: none;line-height: 18px;"
-    />
-    <p class="description">
-        <?= esc_html_e('height value is auto generated by width value.', 'wpaparat'); ?>
-    </p>
-    <?php
-}
- 
-function wpaparat_field_figurewidth_cb($args)
-{
-    $options = get_option('wpaparat_options');
-    ?>
-    <input id="<?= esc_attr($args['label_for']); ?>"
-			type="number"
-            name="wpaparat_options[<?= esc_attr($args['label_for']); ?>]"
-			value="<?= isset($options[$args['label_for']]) ? $options[$args['label_for']] : ('35'); ?>"
-			min="10"
-			max="100"
-    /><span>%</span>
-    <p class="description">
-        <?= esc_html_e('to increase size of picture in display change this option. Default: 35 %', 'wpaparat'); ?>
-    </p>
-    <?php
-}
- 
-function wpaparat_field_custom_picture_cb($args)
-{
-    $options = get_option('wpaparat_options');
-    ?>
-	<input id="<?= esc_attr($args['label_for']); ?>" class="thumnail_pic_url form-input-tip" type="text" name="wpaparat_options[<?= esc_attr($args['label_for']); ?>]" size="60" value="<?= isset($options[$args['label_for']]) ? $options[$args['label_for']] : ''; ?>" placeholder="<?php _e('Insert image address', 'wpaparat'); ?>" style="height: 28px;">
-	<input id="upload_image_button" class="button" value="<?php _e('Upload', 'wpaparat'); ?>" type="button">
-	<input id="default_image_button" class="button" value="<?php _e('Use default thumbnail', 'wpaparat'); ?>" type="button" data-defaultimg="<?php echo plugins_url('assets/images/aparat-nothumb.png', __FILE__); ?>">
-	<img class="wpaparat_thumbnail" src="<?= isset($options[$args['label_for']]) && !empty($options[$args['label_for']]) ? $options[$args['label_for']] : plugins_url('assets/images/aparat-nothumb.png', __FILE__); ?>" width="200" style="display: block; clear: both; margin: 15px 0;" />
-    <p class="description">
-        <?= esc_html_e('this thumbnail will shown when video thumbnail have a problem or not exist.', 'wpaparat'); ?>
-    </p>
-    <?php
-}
-
-
-/* top level menu */
-function wpaparat_options_page()
-{
-    add_menu_page( __( "Aparat for WordPress", "wpaparat" ), __( "Aparat setting", "wpaparat" ), 'manage_options', 'wpaparat', 'wpaparat_options_page_html', plugins_url('assets/images/icon.png', __FILE__) );
-}
-add_action('admin_menu', 'wpaparat_options_page');
-
-function wpaparat_options_page_html()
-{
-    if (!current_user_can('manage_options')) {
+// Show and render admin options menu
+function wp_aparat_options_page_html() {
+    if (!current_user_can('manage_options'))
         return;
-    }
-	
-    if (isset($_GET['settings-updated'])) {
-        add_settings_error('wpaparat_messages', 'wpaparat_message', __('Settings saved successfully.', 'wpaparat'), 'updated');
-    }
-	
+
+    if (isset($_GET['settings-updated']))
+        add_settings_error('wpaparat_messages', 'wp_aparat_message', __('Settings saved successfully.', 'wp-aparat'), 'updated');
+
     settings_errors('wpaparat_messages');
+
     ?>
     <div class="wrap">
-        <h1><?= esc_html_e(get_admin_page_title()); ?></h1>
+        <h1><?php esc_html_e(get_admin_page_title()); ?></h1>
         <form action="options.php" method="post">
             <?php
-				settings_fields('wpaparat');
-				do_settings_sections('wpaparat');
-				submit_button(__('Save Settings', 'wpaparat'));
+            settings_fields('wp-aparat');
+            do_settings_sections('wp-aparat');
+            submit_button(__('Save Settings', 'wp-aparat'));
             ?>
         </form>
     </div>
     <?php
 }
 
-
-/* validation of settings */
-function wpaparat_validation_function( $input ) {
+// Settings validations
+function wp_aparat_validation_function( $input ) {
     $output = $input;
-		
-	if ( !is_bool($output['wpaparat_field_newtab']) || empty($output['wpaparat_field_newtab']) ) {
-		$output['wpaparat_field_newtab'] = true;
-	}
-	if ( $output['wpaparat_field_newtab'] == "newtab" ) {
-		$output['wpaparat_field_newtab'] = true;
-	} else {
-		$output['wpaparat_field_newtab'] = false;
-	}
-	
-	$output['wpaparat_field_width'] = intval( $output['wpaparat_field_width'] );
-	
-	if ( !is_int($output['wpaparat_field_width']) || empty($output['wpaparat_field_width']) ) {
-		$output['wpaparat_field_width'] = 139;
-	}
-	
-	$output['wpaparat_field_height'] = intval( $output['wpaparat_field_height'] );
-	
-	if ( !is_int($output['wpaparat_field_height']) || empty($output['wpaparat_field_height']) ) {
-		$output['wpaparat_field_height'] = 78;
-	}
-	
-	$output['wpaparat_field_figurewidth'] = intval( $output['wpaparat_field_figurewidth'] );
-	
-	if ( !is_int($output['wpaparat_field_figurewidth']) || empty($output['wpaparat_field_figurewidth']) ) {
-		$output['wpaparat_field_figurewidth'] = 35;
-	}
 
-	return apply_filters( 'wpaparat_validation_function', $output, $input );
-}
-
-
-function wpaparat_upload_scripts($hook) {
-	
-    if ( $hook == 'toplevel_page_wpaparat' ) {
-		wp_enqueue_media();
-		wp_enqueue_script('media-upload');
-		wp_enqueue_script('thickbox');
-		wp_register_script('wpaparat-uploader-js', plugins_url('assets/js/uploader.js', __FILE__), array('jquery', 'media-upload', 'thickbox'), null);
-		
-		// Localize the scripts
-		$uploader_translation = array(
-			'title' => __( 'Custom image', 'wpaparat' ),
-			'buttontext' => __( 'Use this image', 'wpaparat' ),
-		);
-		wp_localize_script( 'wpaparat-uploader-js', 'wpaparat', $uploader_translation );
-		
-		wp_enqueue_script('wpaparat-uploader-js');
-		wp_enqueue_style('thickbox');
+    if ($output['wpaparat_field_newtab'] == "newtab" || empty($output['wpaparat_field_newtab'])) {
+        $output['wpaparat_field_newtab'] = true;
+    } else {
+        $output['wpaparat_field_newtab'] = false;
     }
-}
-add_action( 'admin_enqueue_scripts', 'wpaparat_upload_scripts' );
 
+    if ( empty($output['wpaparat_field_figure_size']) ) {
+        $output['wpaparat_field_figure_size'] = 'one-third';
+    }
+
+    return apply_filters( 'wp_aparat_validation_function', $output, $input );
+}
+
+// WP Aparat Settings page
+function wp_aparat_settings_init()
+{
+    register_setting('wp-aparat', 'wpaparat_options', 'wp_aparat_validation_function');
+    add_settings_section(
+        'wp_aparat_option_section',
+        __('Widget option', 'wp-aparat'),
+        '',
+        'wp-aparat'
+    );
+    add_settings_field(
+        'wpaparat_field_newtab',
+        __('New Tab', 'wp-aparat'),
+        'wp_aparat_field_open_new_tab_cb',
+        'wp-aparat',
+        'wp_aparat_option_section',
+        [
+            'label_for'		=> 'wpaparat_field_newtab',
+            'class'			=> 'wp-aparat-row'
+        ]
+    );
+    add_settings_field(
+        'wpaparat_field_figure_size',
+        __('Picture Size', 'wp-aparat'),
+        'wp_aparat_field_figure_size_cb',
+        'wp-aparat',
+        'wp_aparat_option_section',
+        [
+            'label_for'		=> 'wpaparat_field_figure_size',
+            'class'			=> 'wp-aparat-row'
+        ]
+    );
+}
+ 
+// Register WP Aparat settings to WordPress admin
+add_action('admin_init', 'wp_aparat_settings_init');
+
+/**
+ * Callback functions
+ */
+function wp_aparat_field_open_new_tab_cb($args) {
+    $open_in_new_tab = get_wp_aparat_option_open_new_tab();
 ?>
+    <select id="<?php echo esc_attr($args['label_for']); ?>" name="wpaparat_options[<?php echo esc_attr($args['label_for']); ?>]" style="min-width: 200px">
+        <option value="newtab" <?php selected($open_in_new_tab, 'newtab', false); ?>>
+            <?php esc_html_e('Open links in a new tab', 'wp-aparat'); ?>
+        </option>
+        <option value="self" <?php selected($open_in_new_tab, 'self', false); ?>>
+            <?php esc_html_e('Open links in a same window', 'wp-aparat'); ?>
+        </option>
+    </select>
+<?php
+}
+ 
+function wp_aparat_field_figure_size_cb($args) {
+    $figure_size = get_wp_aparat_option_figure_size();
+?>
+    <select id="<?php echo esc_attr($args['label_for']); ?>" name="wpaparat_options[<?php echo esc_attr($args['label_for']); ?>]" style="min-width: 200px">
+        <option value="one-third" <?php selected($figure_size, 'one-third', false); ?>>
+            <?php esc_html_e('One Third', 'wp-aparat'); ?>
+        </option>
+        <option value="half" <?php selected($figure_size, 'half', false); ?>>
+            <?php esc_html_e('Half', 'wp-aparat'); ?>
+        </option>
+        <option value="full" <?php selected($figure_size, 'full', false); ?>>
+            <?php esc_html_e('Full', 'wp-aparat'); ?>
+        </option>
+    </select>
+    <p class="description">
+        <?php esc_html_e('Image size of each video in the widget. Default: one third', 'wp-aparat'); ?>
+    </p>
+<?php
+}

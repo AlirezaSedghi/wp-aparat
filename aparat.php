@@ -48,7 +48,8 @@ require_once('AparatWidget.php');
  */
 function wp_aparat_enqueue() {
     global $wp_aparat_plugin_url, $wp_aparat_plugin_version;
-    wp_enqueue_style( 'wp_aparat', $wp_aparat_plugin_url . "assets/css/style.css", false, $wp_aparat_plugin_version );
+    wp_enqueue_style( 'wp-aparat', $wp_aparat_plugin_url . "assets/css/wp-aparat.css", false, $wp_aparat_plugin_version );
+    wp_enqueue_script( 'wp-aparat', $wp_aparat_plugin_url . "assets/js/wp-aparat.min.js", array(), $wp_aparat_plugin_version, true );
 }
 add_action( 'wp_enqueue_scripts', 'wp_aparat_enqueue' );
 
@@ -58,13 +59,20 @@ add_action( 'wp_enqueue_scripts', 'wp_aparat_enqueue' );
 function wp_aparat_admin_css() {
     if ( is_rtl() ) {
         echo '<style>
-			.mce-container .mce-container-body {
+            .mce-container .mce-container-body {
 				direction: rtl !important;
 				text-align: right !important;
 			} 
 		</style>';
     }
     echo '<style>
+        #adminmenu li.toplevel_page_wp-aparat img {
+            width: 18px;
+            margin-top: -1px;
+        }
+        #adminmenu li.toplevel_page_wp-aparat.current img {
+            opacity: 1;
+        }
 		.mce-btn[aria-label="add Aparat video"] .mce-ico, .mce-btn[aria-label="افزودن ویدیوی آپارات"] .mce-ico {
 			width: 62px !important;
 		} 
@@ -76,15 +84,19 @@ add_action('admin_head', 'wp_aparat_admin_css');
  * Add JS to admin area
  */
 function wp_aparat_admin_js_variables() {
+    global $wp_aparat_plugin_url;
     echo '
 	<script>
-		let aparat_video_add		= "' . __( "add Aparat video", 'wp-aparat' ) . '";
-		let aparat_video_id			= "' . __( "ID:", 'wp-aparat' ) . '";
-		let aparat_video_id_insert	= "' . __( "Insert Aparat video ID :", 'wp-aparat' ) . '";
-		let aparat_video_id_desc	= "' . __( "for example, the ID of https://www.aparat.com/v/GHseX is : GHseX", 'wp-aparat' ) . '";
-		let aparat_video_width		= "' . __( "Width:", 'wp-aparat' ) . '";
-		let aparat_video_width_desc	= "' . __( "Enter the Picture Width, e.g.: 300", 'wp-aparat' ) . '";
-		let aparat_video_width_dft	= "' . __( "Default picture width: 600", 'wp-aparat' ) . '";
+		let aparat_plugin_url = "' . $wp_aparat_plugin_url . '";
+		let aparat_video_add = "' . __( "add Aparat video", 'wp-aparat' ) . '";
+		let aparat_video_id = "' . __( "ID:", 'wp-aparat' ) . '";
+		let aparat_video_id_insert = "' . __( "Insert Aparat video ID:", 'wp-aparat' ) . '";
+		let aparat_video_id_desc = "' . __( "for example, the ID of https://www.aparat.com/v/13spN is: 13spN", 'wp-aparat' ) . '";
+		let aparat_video_width = "' . __( "Width:", 'wp-aparat' ) . '";
+		let aparat_video_full = "' . __( "Full", 'wp-aparat' ) . '";
+		let aparat_video_half = "' . __( "Half", 'wp-aparat' ) . '";
+		let aparat_video_width_desc = "' . __( "Select the width of the video.", 'wp-aparat' ) . '";
+		let aparat_video_width_dft = "' . __( "The default width is full size", 'wp-aparat' ) . '";
 	</script>
 	';
 }
@@ -115,13 +127,31 @@ function wp_aparat_shortcode($atts) {
 	extract(
 		shortcode_atts( array(
 			'id'		=> '',
-			'width'		=> '600',
+			'width'		=> 'full',
 		), $atts )
 	);
+
     $id = $id ?? '';
-    $width = $width ?? 600;
-	$height = intval( 9 * $width / 16 );
-	return "<iframe src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width}' height='{$height}' allowfullscreen='true' class='aparat-frame'></iframe>";
+    $width = $width ?? "full";
+
+    if ( is_numeric($width) ) {
+        $height = intval(9 * $width / 16);
+        return "<iframe src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width}' height='{$height}' allowfullscreen='true' class='aparat-frame'></iframe>";
+    }
+
+    $width_percent = ( $width == "full" ) ? "100%" : "50%";
+    $iframe_id = uniqid();
+    return "
+    <iframe id='wp-aparat-{$iframe_id}' src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width_percent}' allowfullscreen='true' class='aparat-frame aparat-{$width}-frame'></iframe>
+    <script type='text/javascript'>
+        if (typeof window.aparat_iframes == 'undefined') {
+            window.aparat_iframes = [ 'wp-aparat-{$iframe_id}' ];
+        }
+        else {
+            window.aparat_iframes.push( 'wp-aparat-{$iframe_id}' );
+        }
+    </script>
+    ";
 }
 add_shortcode( 'aparat', 'wp_aparat_shortcode' );
 
@@ -147,6 +177,6 @@ function wp_aparat_add_tinymce() {
 add_action( 'admin_head', 'wp_aparat_add_tinymce' );
 
 function wp_aparat_add_tinymce_plugin( $plugin_array ) {
-    $plugin_array['aparat_shortcode'] = plugins_url('assets/js/editor_plugin.js', __FILE__);
+    $plugin_array['aparat_shortcode'] = plugins_url('assets/js/editor_plugin.min.js', __FILE__);
     return $plugin_array;
 }

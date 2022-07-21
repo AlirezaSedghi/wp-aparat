@@ -50,6 +50,7 @@ function get_wp_aparat_option_image_height($option = '') {
 
 /**
  * Get WP Aparat option : Figure width
+ * DEPRECATED
  *
  * @param string $option
  * @return bool|mixed
@@ -59,6 +60,19 @@ function get_wp_aparat_option_figure_width($option = '') {
         $option = get_wp_aparat_options();
 
     return $wp_aparat_options["wpaparat_field_figurewidth"] ?? 35;
+}
+
+/**
+ * Get WP Aparat option : Figure size
+ *
+ * @param string $option
+ * @return bool|mixed
+ */
+function get_wp_aparat_option_figure_size($option = '') {
+    if ( empty($option) )
+        $option = get_wp_aparat_options();
+
+    return $wp_aparat_options["wpaparat_field_figure_size"] ?? 'one-third';
 }
 
 /**

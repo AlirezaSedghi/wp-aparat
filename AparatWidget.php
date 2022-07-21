@@ -42,15 +42,28 @@ class AparatWidget extends WP_Widget {
 
                 $wp_aparat_options  = get_wp_aparat_options();
                 $open_in_new_tab	= get_wp_aparat_option_open_new_tab($wp_aparat_options);
-                $image_width		= get_wp_aparat_option_image_width($wp_aparat_options);
-                $image_height		= get_wp_aparat_option_image_height($wp_aparat_options);
                 $figure_width		= get_wp_aparat_option_figure_width($wp_aparat_options);
+                $figure_size		= get_wp_aparat_option_figure_size($wp_aparat_options);
+                if ( $figure_width && empty($figure_size) ) {
+                    switch ($figure_width) {
+                        default:
+                        case ( $figure_width <= 40 ):
+                            $figure_size = "one-third";
+                            break;
+                        case ( $figure_width <= 70 ):
+                            $figure_size = "half";
+                            break;
+                        case ( $figure_width > 70 ):
+                            $figure_size = "full";
+                            break;
+                    }
+                }
 
                 foreach ($lastVideos as $lastVideoIndex => $lastVideo) {
                     if ( ($lastVideo["type"] ?? '') == "Video" ) {
                         $videoData = $wp_aparat->getVideoData($data, $lastVideo["id"] ?? false);
                         if ( !empty($videoData) ) {
-                            include($wp_aparat_plugin_full_path . "/templates/wp-aparat-widget-item.php");
+                            include($wp_aparat_plugin_full_path . "/templates/widget-item.php");
                         }
                     }
                 }

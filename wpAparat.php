@@ -28,12 +28,25 @@ class wpAparat {
 
     /**
      * Get channel data from API
+     * with cache for 3 minutes
      *
      * @return mixed
      */
     public function getChannelData() {
-        $response = wp_remote_get( esc_url_raw( "https://www.aparat.com/api/fa/v1/user/user/profilehome/username/" . $this->getChannelID() ), [ 'timeout' => 1, 'user-agent' => 'WordPress/WP-Aparat', 'headers' => array('Content-Type' => 'application/json') ] );
-        return json_decode( wp_remote_retrieve_body( $response ), true );
+        $transient_key = "wp-aparat-channel-" . $this->getChannelID();
+        if ( false === ( $data = get_transient( $transient_key ) ) ) {
+            $response = wp_remote_get( esc_url_raw( "https://www.aparat.com/api/fa/v1/user/user/profilehome/username/" . $this->getChannelID() ), [ 'timeout' => 1, 'user-agent' => 'WordPress/WP-Aparat', 'headers' => array('Content-Type' => 'application/json') ] );
+            if ( is_array( $response ) && ! is_wp_error( $response ) ) {
+                $response_body = wp_remote_retrieve_body( $response );
+                $response = json_decode( $response_body, true );
+                if ( !empty($response) ) {
+                    $data = $response;
+                    if ( $data )
+                        set_transient($transient_key, $data, 3 * MINUTE_IN_SECONDS);    // Cache for 3 minutes
+                }
+            }
+        }
+        return $data;
     }
 
     /**
