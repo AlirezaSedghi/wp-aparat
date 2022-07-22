@@ -70,12 +70,23 @@ function wp_aparat_settings_init()
     );
     add_settings_field(
         'wpaparat_field_figure_size',
-        __('Picture Size', 'wp-aparat'),
+        __('Picture size in widget', 'wp-aparat'),
         'wp_aparat_field_figure_size_cb',
         'wp-aparat',
         'wp_aparat_option_section',
         [
             'label_for'		=> 'wpaparat_field_figure_size',
+            'class'			=> 'wp-aparat-row'
+        ]
+    );
+    add_settings_field(
+        'wpaparat_field_default_video_size',
+        __('Default video size', 'wp-aparat'),
+        'wp_aparat_field_default_video_size_cb',
+        'wp-aparat',
+        'wp_aparat_option_section',
+        [
+            'label_for'		=> 'wpaparat_field_default_video_size',
             'class'			=> 'wp-aparat-row'
         ]
     );
@@ -117,6 +128,29 @@ function wp_aparat_field_figure_size_cb($args) {
     </select>
     <p class="description">
         <?php esc_html_e('Image size of each video in the widget. Default: one third', 'wp-aparat'); ?>
+    </p>
+<?php
+}
+
+function wp_aparat_field_default_video_size_cb($args) {
+    $default_video_size = get_wp_aparat_option_default_video_size();
+?>
+    <select id="<?php echo esc_attr($args['label_for']); ?>" name="wpaparat_options[<?php echo esc_attr($args['label_for']); ?>]" style="min-width: 200px">
+        <option value="full" <?php selected($default_video_size, 'full'); ?>>
+            <?php esc_html_e('Full', 'wp-aparat'); ?>
+        </option>
+        <option value="half" <?php selected($default_video_size, 'half'); ?>>
+            <?php esc_html_e('Half', 'wp-aparat'); ?>
+        </option>
+        <option value="600" <?php selected($default_video_size, '600'); ?>>
+            <?php esc_html_e('600 pixel', 'wp-aparat'); ?>
+        </option>
+        <option value="400" <?php selected($default_video_size, '400'); ?>>
+            <?php esc_html_e('400 pixel', 'wp-aparat'); ?>
+        </option>
+    </select>
+    <p class="description">
+        <?php esc_html_e('Default size for videos in posts and pages. Default: full', 'wp-aparat'); ?>
     </p>
 <?php
 }

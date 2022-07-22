@@ -89,6 +89,19 @@ function get_wp_aparat_option_custom_picture($option = '') {
 }
 
 /**
+ * Get WP Aparat option : Default video size
+ *
+ * @param string $option
+ * @return bool|mixed
+ */
+function get_wp_aparat_option_default_video_size($option = '') {
+    if ( empty($option) )
+        $option = get_wp_aparat_options();
+
+    return $option["wpaparat_field_default_video_size"] ?? '';
+}
+
+/**
  * Convert number duration into human-readable text
  *
  * @param int $duration

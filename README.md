@@ -4,7 +4,7 @@
 **Tags:** `aparat`, `embed`, `video`, `آپارات`, `ویدیو`, `widget`, `shortcode` \
 **Requires at least:** `4.0` \
 **Tested up to:** `6.0.1` \
-**Stable tag:** `2.2.0` \
+**Stable tag:** `2.2.1` \
 **Requires PHP:** `7.0` \
 **License:** `MIT License` \
 **License URI:** `https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE`

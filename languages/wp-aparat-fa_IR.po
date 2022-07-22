@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Aparat for WordPress\n"
-"POT-Creation-Date: 2022-07-22 12:47+0430\n"
-"PO-Revision-Date: 2022-07-22 12:47+0430\n"
+"POT-Creation-Date: 2022-07-22 17:54+0430\n"
+"PO-Revision-Date: 2022-07-22 17:54+0430\n"
 "Last-Translator: \n"
 "Language-Team: HREF\n"
 "Language: fa_IR\n"
@@ -72,32 +72,50 @@ msgid "New Tab"
 msgstr "بازکردن در زبانه  جدید"
 
 #: aparat-admin.php:73
-msgid "Picture Size"
-msgstr "اندازه تصویر"
+msgid "Picture size in widget"
+msgstr "اندازه تصویر در ابزارک"
 
-#: aparat-admin.php:95
+#: aparat-admin.php:84
+msgid "Default video size"
+msgstr "اندازه پیش‌فرض ویدیو"
+
+#: aparat-admin.php:106
 msgid "Open links in a new tab"
 msgstr "بازکردن پیوند در زبانه جدید"
 
-#: aparat-admin.php:98
+#: aparat-admin.php:109
 msgid "Open links in a same window"
 msgstr "بازکردن پیوند در همان صفحه"
 
-#: aparat-admin.php:109
+#: aparat-admin.php:120
 msgid "One Third"
 msgstr "یک سوم"
 
-#: aparat-admin.php:112 aparat.php:97 assets/js/wp-aparat-block.js:77
+#: aparat-admin.php:123 aparat-admin.php:143 aparat.php:97
+#: assets/js/wp-aparat-block.js:79
 msgid "Half"
 msgstr "یک دوم"
 
-#: aparat-admin.php:115 aparat.php:96 assets/js/wp-aparat-block.js:76
+#: aparat-admin.php:126 aparat-admin.php:140 aparat.php:96
+#: assets/js/wp-aparat-block.js:78
 msgid "Full"
 msgstr "کامل"
 
-#: aparat-admin.php:119
+#: aparat-admin.php:130
 msgid "Image size of each video in the widget. Default: one third"
 msgstr "اندازه تصویر هر ویدیو در ابزارک. پیش‌فرض: یک سوم"
+
+#: aparat-admin.php:146
+msgid "600 pixel"
+msgstr "600 پیکسل"
+
+#: aparat-admin.php:149
+msgid "400 pixel"
+msgstr "400 پیکسل"
+
+#: aparat-admin.php:153
+msgid "Default size for videos in posts and pages. Default: full"
+msgstr "اندازه پیش‌فرض ویدیوهای موجود در محتوای نوشته‌ها و برگه‌ها. پیش‌فرض: کامل"
 
 #: aparat.php:24
 msgid "Widget to show your Aparat channel videos in WordPress."
@@ -115,11 +133,11 @@ msgstr "افزودن ویدیوی آپارات"
 msgid "ID:"
 msgstr "شناسه:"
 
-#: aparat.php:93 assets/js/wp-aparat-block.js:53
+#: aparat.php:93 assets/js/wp-aparat-block.js:55
 msgid "Insert Aparat video ID:"
 msgstr "شناسه ویدیوی آپارات را درج کنید:"
 
-#: aparat.php:94 assets/js/wp-aparat-block.js:54
+#: aparat.php:94 assets/js/wp-aparat-block.js:56
 msgid "for example, the ID of https://www.aparat.com/v/13spN is: 13spN"
 msgstr "به‌عنوان مثال شناسه ویدیوی https://www.aparat.com/v/13spN عبارت است از: 13spN"
 
@@ -127,11 +145,11 @@ msgstr "به‌عنوان مثال شناسه ویدیوی https://www.aparat.co
 msgid "Width:"
 msgstr "طول تصویر:"
 
-#: aparat.php:98 assets/js/wp-aparat-block.js:65
+#: aparat.php:98 assets/js/wp-aparat-block.js:67
 msgid "Select the width of the video."
 msgstr "اندازه نمایش ویدیو را انتخاب نمایید."
 
-#: aparat.php:99 assets/js/wp-aparat-block.js:66
+#: aparat.php:99 assets/js/wp-aparat-block.js:68
 msgid "The default width is full size"
 msgstr "اندازه پیش‌فرض: کامل"
 
@@ -139,21 +157,24 @@ msgstr "اندازه پیش‌فرض: کامل"
 msgid "Embed Aparat video in the content"
 msgstr "جاسازی ویدیوی آپارات در محتوا"
 
-#: assets/js/wp-aparat-block.js:51
+#: assets/js/wp-aparat-block.js:53
 msgid "Aparat video"
 msgstr "ویدیوی آپارات"
 
-#: assets/js/wp-aparat-block.js:56
+#: assets/js/wp-aparat-block.js:58
 msgid "Aparat video ID..."
 msgstr "شناسه ویدیوی آپارات..."
 
-#: assets/js/wp-aparat-block.js:68
+#: assets/js/wp-aparat-block.js:70
 msgid "Choose width"
 msgstr "انتخاب اندازه"
 
 #: templates/widget-item.php:15
 msgid "visits"
 msgstr "بازدید"
+
+#~ msgid "600px"
+#~ msgstr "600 پیکسل"
 
 #~ msgid "Custom Thumbnail"
 #~ msgstr "تصویر دلخواه"
