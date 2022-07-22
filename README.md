@@ -1,13 +1,13 @@
 # Aparat for WordPress
 
-**Contributors:** as911 \
-**Tags:** aparat, embed, video, آپارات, ویدیو, widget, shortcode \
-**Requires at least:** 4.0 \
-**Tested up to:** 6.0.1 \
-**Stable tag:** 2.2.0 \
-**Requires PHP:** 7.0 \
-**License:** MIT License \
-**License URI:** https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE
+**Contributors:** `as911` \
+**Tags:** `aparat`, `embed`, `video`, `آپارات`, `ویدیو`, `widget`, `shortcode` \
+**Requires at least:** `4.0` \
+**Tested up to:** `6.0.1` \
+**Stable tag:** `2.2.0` \
+**Requires PHP:** `7.0` \
+**License:** `MIT License` \
+**License URI:** `https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE`
 
 Show a list of your Aparat channel's videos in your WordPress site.
 
@@ -28,7 +28,7 @@ You can install Aparat for WordPress by either using the wordpress.org plugin di
 
 The first method:
 
-1. Visit Plugins -> Add New in the WordPress dashboard
+1. Visit `Plugins -> Add New` in the WordPress dashboard
 1. Search for 'Aparat for WordPress'
 1. Click on 'Install Now'
 1. Activate the plugin through the 'Plugins' screen in WordPress
@@ -49,12 +49,15 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 
 ### 1. Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )
 
-![Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )](https://ps.w.org/wp-aparat/assets/screenshot-1.png | width=500px)
+<p align="center">
+    <img src="https://ps.w.org/wp-aparat/assets/screenshot-1.png" alt="Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )" width="500px">
+</p>
 
 ### 2. Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )
 
-![Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )](https://ps.w.org/wp-aparat/assets/screenshot-2.png | width=500px)
-
+<p align="center">
+    <img src="https://ps.w.org/wp-aparat/assets/screenshot-2.png" alt="Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )" width="500px">
+</p>
 
 ## Changelog
 
