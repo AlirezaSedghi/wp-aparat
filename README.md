@@ -1,16 +1,17 @@
-=== Aparat for WordPress ===
-Contributors: as911
-Tags: aparat, embed, video, آپارات, ویدیو, widget, shortcode
-Requires at least: 4.0
-Tested up to: 6.0.1
-Stable tag: 2.2.0
-Requires PHP: 7.0
-License: MIT License
-License URI: https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE
+# Aparat for WordPress
+
+**Contributors:** `as911` \
+**Tags:** `aparat`, `embed`, `video`, `آپارات`, `ویدیو`, `widget`, `shortcode` \
+**Requires at least:** `4.0` \
+**Tested up to:** `6.0.1` \
+**Stable tag:** `2.2.0` \
+**Requires PHP:** `7.0` \
+**License:** `MIT License` \
+**License URI:** `https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE`
 
 Show a list of your Aparat channel's videos in your WordPress site.
 
-== Description ==
+## Description
 
 Aparat is one of the video-sharing services in Iran. With this plugin, you can add your Aparat videos to posts/pages/widgets in WordPress or show a list of them in the sidebar.
 
@@ -21,13 +22,13 @@ Features include:
 *   Shortcode to show video from Aparat in posts/pages.
 *   Insert button in WordPress editor to add videos.
 
-== Installation ==
+## Installation
 
 You can install Aparat for WordPress by either using the wordpress.org plugin directory or by directly uploading plugin files to your server.
 
 The first method:
 
-1. Visit Plugins -> Add New in the WordPress dashboard
+1. Visit `Plugins -> Add New` in the WordPress dashboard
 1. Search for 'Aparat for WordPress'
 1. Click on 'Install Now'
 1. Activate the plugin through the 'Plugins' screen in WordPress
@@ -38,22 +39,34 @@ The second method:
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions
 
-= How can I report bugs or contribute to the plugin? =
+### How can I report bugs or contribute to the plugin?
+
 All developments are happening on [plugin's GitHub repository](https://github.com/AlirezaSedghi/wp-aparat). You can use the [Issue Tracker](https://github.com/AlirezaSedghi/wp-aparat/issues) to report bugs and issues. You can also send your patches using GitHub Pull Requests feature.
 
-== Screenshots ==
+## Screenshots
 
-1. Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )
-2. Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )
+### 1. Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )
 
-== Changelog ==
+<p align="center">
+    <img src="https://ps.w.org/wp-aparat/assets/screenshot-1.png" alt="Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )" width="500px">
+</p>
 
-= 2.2.0 =
+### 2. Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )
+
+<p align="center">
+    <img src="https://ps.w.org/wp-aparat/assets/screenshot-2.png" alt="Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )" width="500px">
+</p>
+
+## Changelog
+
+### 2.2.0
+
 * Add support of WordPress block editor (Gutenberg)
 
-= 2.1.0 =
+### 2.1.0
+
 * Fix the problem with the video display
 * Fix the problem of displaying the channel video list
 * Improve the appearance of the widget display
@@ -62,15 +75,18 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 * Compatible with previous version's settings
 * Release under the MIT license as an open-source plugin
 
-= 1.5 =
+### 1.5
+
 * Options page in WordPress dashboard to configure settings.
 * Add feature to set custom thumbnail.
 * Add a feature to set a custom width for shortcodes.
 
-== Upgrade Notice ==
+## Upgrade Notice
 
-= 2.2.0 =
+### 2.2.0
+
 Add support of WordPress block editor
 
-= 2.1.0 =
+### 2.1.0
+
 Fixing problems and rewriting the plugin
