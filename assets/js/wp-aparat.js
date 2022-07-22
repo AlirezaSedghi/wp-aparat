@@ -1,8 +1,7 @@
 (function () {
-    if (typeof window.aparat_iframes !== 'undefined') {
-        window.aparat_iframes.forEach(function(item, index) {
-            let element = document.getElementById(item);
-            console.log(item, element);
+    let aparat_iframes = document.querySelectorAll(".aparat-frame");
+    if ( aparat_iframes.length ) {
+        aparat_iframes.forEach(function (element, index) {
             element.onload = function() {
                 element.style.height = ( 9 * element.offsetWidth / 16 ) + "px";
             }

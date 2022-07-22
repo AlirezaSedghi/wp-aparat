@@ -1,9 +1,10 @@
 === Aparat for WordPress ===
 Contributors: as911
 Tags: aparat, embed, video, آپارات
-Requires at least: 3.0.1
-Tested up to: 4.6.1
-Stable tag: 1.5
+Requires at least: 4.0
+Tested up to: 6.0.1
+Stable tag: 2.2.0
+Requires PHP: 7.0
 License: MIT License
 License URI: https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE
 
@@ -11,21 +12,14 @@ Show a list of your Aparat channel's videos in your WordPress site.
 
 == Description ==
 
-Aparat is one of the video sharing services in Iran. With this plugin you will possibly add your aparat videos to posts / pages / widgets in WordPress or show a list of them in sidebar.
+Aparat is one of the video-sharing services in Iran. With this plugin, you will possible add your Aparat videos to posts/pages/widgets in WordPress or show a list of them in the sidebar.
 
 Features include:
 
 *   Aparat widget to show a list of videos.
-*   Option to set number of videos to show in widgets.
-*   Generate thumbnail of videos to reduce page size and load time.
-*   Option to set custom thumbnail for videos which have problem to load pictures.
-*   Shortcode to show video from Aparat in posts / pages.
-*   Insert button in WordPress editor for add videos.
-*   Option to set custom width of video in editor.
-*   Option to increase quality of thumbnails.
-*   Save pictures to WordPress upload directory to reduce execution time.
-
-* Compatible with [`wp-jalali` plugin](https://wordpress.org/plugins/wp-jalali/ "WordPress Jalali Plugin") to show video publish date in Persian date ( Jalali ).
+*   Option to set the number of videos to show in widgets.
+*   Shortcode to show video from Aparat in posts/pages.
+*   Insert button in WordPress editor to add videos.
 
 == Installation ==
 
@@ -51,12 +45,32 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 
 == Screenshots ==
 
-1. Preview of Aparat for WordPress admin page ( Persian Language )
-2. Preview of video insert box in post page ( Persian Language )
+1. Preview of Aparat block on the WordPress block editor (Gutenberg) ( Persian Language )
+2. Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )
 
 == Changelog ==
+
+= 2.2.0 =
+* Add support of WordPress block editor (Gutenberg)
+
+= 2.1.0 =
+* Fix the problem of video display
+* Fix the problem of displaying the channel video list
+* Improve appearance of the widget display
+* Receiving thumbnails directly from the Aparat to avoid taking up space
+* Rewriting the codes of the section receiving information from Aparat to increase speed and solve problems
+* Compatible with previous versions settings
+* Release under the MIT license as an open-source plugin
 
 = 1.5 =
 * Option page in WordPress dashboard to configure settings.
 * Add feature to set custom thumbnail.
 * Add feature to set custom width for shortcodes.
+
+== Upgrade Notice ==
+
+= 2.2.0 =
+Add support of WordPress block editor
+
+= 2.1.0 =
+Fixing problems and rewriting the plugin

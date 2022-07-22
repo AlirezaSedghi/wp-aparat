@@ -40,7 +40,7 @@
 					],
                     onsubmit: function( e ) {
 						if ( e.data.aparat ) {
-							let aparat_id = e.data.aparat.replace("https://www.aparat.com/v/", "").replace("http://www.aparat.com/v/", "").replace("www.aparat.com/v/", "");
+							let aparat_id = e.data.aparat.replace("https://www.aparat.com/v/", "").replace("http://www.aparat.com/v/", "").replace("www.aparat.com/v/", "").trim();
 							if ( e.data.width ) {
 								editor.insertContent( '[aparat id="' + aparat_id + '" width="' + e.data.width + '"]' );
 							}

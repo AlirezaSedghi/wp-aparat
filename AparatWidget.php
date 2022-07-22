@@ -18,10 +18,10 @@ class AparatWidget extends WP_Widget {
      */
     public function widget( $args, $instance ) {
         $title = apply_filters( 'widget_title', $instance['title'] ?? '' );
-        $channelID = apply_filters( 'widget_title', $instance['channelID'] ?? '' );
-        $aparatNumber = apply_filters( 'widget_title', $instance['aparatnumber'] ?? '' );
+        $channelID = apply_filters( 'widget_channel_ID', $instance['channelID'] ?? '' );
+        $numberOfItems = apply_filters( 'widget_number', $instance['aparatnumber'] ?? '' );
 
-        if ( !empty($channelID) && $aparatNumber ) {
+        if ( !empty($channelID) && $numberOfItems ) {
 
             global $wp_aparat_plugin_full_path;
 
@@ -32,7 +32,7 @@ class AparatWidget extends WP_Widget {
 
             $wp_aparat = new wpAparat($channelID);
             $data = $wp_aparat->getChannelData();
-            $lastVideos = $wp_aparat->getLastVideos($data);
+            $lastVideos = $wp_aparat->getLastVideos($data, $numberOfItems);
 
             if ( empty($lastVideos) ) {
                 echo '<p>' . __( "Channel ID is incorrect or access to APARAT.com is currently unavailable.", "wp-aparat" ) . '</p>';
@@ -85,7 +85,7 @@ class AparatWidget extends WP_Widget {
     public function form( $instance ) {
         $title = $instance['title'] ?? __('My Aparat Videos', 'wp-aparat');
         $channelID = $instance['channelID'] ?? '';
-        $aparatNumber = $instance['aparatnumber'] ?? 5;
+        $numberOfItems = $instance['aparatnumber'] ?? 5;
 
         ?>
         <p>
@@ -98,7 +98,7 @@ class AparatWidget extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'aparatnumber' ); ?>"><?php _e( 'Number of videos:', 'wp-aparat' ); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'aparatnumber' ); ?>" name="<?php echo $this->get_field_name( 'aparatnumber' ); ?>" type="number" min="1" max="10" value="<?php echo esc_attr( $aparatNumber ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'aparatnumber' ); ?>" name="<?php echo $this->get_field_name( 'aparatnumber' ); ?>" type="number" min="1" max="10" value="<?php echo esc_attr( $numberOfItems ); ?>" />
         </p>
         <?php
     }

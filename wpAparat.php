@@ -75,13 +75,16 @@ class wpAparat {
      * @param array $data
      * @return array|mixed|string
      */
-    public function getLastVideos($data = []) {
+    public function getLastVideos($data = [], $count = 10) {
         $channelRows = $this->getChannelRows($data);
         $lastVideosIndex = array_search('last_videos', array_column($channelRows, 'id'));
         $lastVideosData = [];
         if ( $lastVideosIndex !== false ) {
             $lastVideos = $channelRows[$lastVideosIndex] ?? [];
             $lastVideosData = $lastVideos["relationships"]["video"]["data"] ?? [];
+        }
+        if ( count($lastVideosData) > $count ) {
+            $lastVideosData = array_slice($lastVideosData, 0, intval($count));
         }
         return $lastVideosData;
     }

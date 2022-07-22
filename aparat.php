@@ -3,8 +3,8 @@
 /*
 Plugin Name: Aparat for WordPress
 Plugin URI: https://alirezasedghi.com/plugins/aparat-for-wordPress/
-Description: Show a list of your Aparat channel's videos in your WordPress site.
-Version: 2.1.0
+Description: Widget to show your Aparat channel videos in WordPress.
+Version: 2.2.0
 Author: Alireza Sedghi
 Author URI: https://alirezasedghi.com
 Text Domain: wp-aparat
@@ -17,11 +17,11 @@ if ( !defined( 'ABSPATH' ) ) {
     die('Forbidden');
 }
 
-$wp_aparat_plugin_version = '2.1.0';
+$wp_aparat_plugin_version = '2.2.0';
 
 // Translation of plugin description
 $dummy_name = __( "Aparat for WordPress", "wp-aparat" );
-$dummy_description = __( "Show a list of your Aparat channel's videos in your wordpress site.", "wp-aparat" );
+$dummy_description = __( "Widget to show your Aparat channel videos in WordPress.", "wp-aparat" );
 $dummy_author = __( "Alireza Sedghi", "wp-aparat" );
 
 // Load plugin settings
@@ -141,17 +141,7 @@ function wp_aparat_shortcode($atts) {
 
     $width_percent = ( $width == "full" ) ? "100%" : "50%";
     $iframe_id = uniqid();
-    return "
-    <iframe id='wp-aparat-{$iframe_id}' src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width_percent}' allowfullscreen='true' class='aparat-frame aparat-{$width}-frame'></iframe>
-    <script type='text/javascript'>
-        if (typeof window.aparat_iframes == 'undefined') {
-            window.aparat_iframes = [ 'wp-aparat-{$iframe_id}' ];
-        }
-        else {
-            window.aparat_iframes.push( 'wp-aparat-{$iframe_id}' );
-        }
-    </script>
-    ";
+    return "<iframe id='wp-aparat-{$iframe_id}' src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width_percent}' allowfullscreen='true' class='aparat-frame aparat-{$width}-frame'></iframe>";
 }
 add_shortcode( 'aparat', 'wp_aparat_shortcode' );
 
@@ -177,6 +167,23 @@ function wp_aparat_add_tinymce() {
 add_action( 'admin_head', 'wp_aparat_add_tinymce' );
 
 function wp_aparat_add_tinymce_plugin( $plugin_array ) {
-    $plugin_array['aparat_shortcode'] = plugins_url('assets/js/editor_plugin.min.js', __FILE__);
+    $plugin_array['aparat_shortcode'] = plugins_url('assets/js/tinymce-editor-plugin.min.js', __FILE__);
     return $plugin_array;
 }
+
+// Add Gutenberg Block
+function wp_aparat_register_block_item() {
+    global $wp_aparat_plugin_url, $wp_aparat_plugin_version, $wp_aparat_plugin_full_path;
+    wp_register_script( 'wp-aparat-block', $wp_aparat_plugin_url . 'assets/js/wp-aparat-block.js', array('wp-blocks', 'wp-i18n', 'wp-editor'), $wp_aparat_plugin_version );
+    register_block_type( "wp-aparat/aparat-block", array( 'editor_script' => 'wp-aparat-block' ) );
+    if ( function_exists( 'wp_set_script_translations' ) ) {
+        wp_set_script_translations( 'wp-aparat-block', 'wp-aparat', $wp_aparat_plugin_full_path . '/languages' );
+    }
+}
+add_action('init', 'wp_aparat_register_block_item');
+
+function wp_aparat_register_block_assets() {
+    global $wp_aparat_plugin_url, $wp_aparat_plugin_version;
+    wp_enqueue_style( 'wp-aparat', $wp_aparat_plugin_url . "assets/css/wp-aparat-block.min.css", false, $wp_aparat_plugin_version );
+}
+add_action('enqueue_block_editor_assets', 'wp_aparat_register_block_assets');
