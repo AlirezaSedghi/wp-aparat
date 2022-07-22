@@ -1,6 +1,6 @@
 === Aparat for WordPress ===
 Contributors: as911
-Tags: aparat, embed, video, آپارات
+Tags: aparat, embed, video, آپارات, ویدیو, widget, shortcode
 Requires at least: 4.0
 Tested up to: 6.0.1
 Stable tag: 2.2.0
@@ -12,7 +12,7 @@ Show a list of your Aparat channel's videos in your WordPress site.
 
 == Description ==
 
-Aparat is one of the video-sharing services in Iran. With this plugin, you will possible add your Aparat videos to posts/pages/widgets in WordPress or show a list of them in the sidebar.
+Aparat is one of the video-sharing services in Iran. With this plugin, you can add your Aparat videos to posts/pages/widgets in WordPress or show a list of them in the sidebar.
 
 Features include:
 
@@ -23,7 +23,7 @@ Features include:
 
 == Installation ==
 
-You can install Aparat for WordPress by either using wordpress.org plugin directory, or by directly uploading plugin files to your server.
+You can install Aparat for WordPress by either using the wordpress.org plugin directory or by directly uploading plugin files to your server.
 
 The first method:
 
@@ -54,18 +54,18 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 * Add support of WordPress block editor (Gutenberg)
 
 = 2.1.0 =
-* Fix the problem of video display
+* Fix the problem with the video display
 * Fix the problem of displaying the channel video list
-* Improve appearance of the widget display
+* Improve the appearance of the widget display
 * Receiving thumbnails directly from the Aparat to avoid taking up space
 * Rewriting the codes of the section receiving information from Aparat to increase speed and solve problems
-* Compatible with previous versions settings
+* Compatible with previous version's settings
 * Release under the MIT license as an open-source plugin
 
 = 1.5 =
-* Option page in WordPress dashboard to configure settings.
+* Options page in WordPress dashboard to configure settings.
 * Add feature to set custom thumbnail.
-* Add feature to set custom width for shortcodes.
+* Add a feature to set a custom width for shortcodes.
 
 == Upgrade Notice ==
 
