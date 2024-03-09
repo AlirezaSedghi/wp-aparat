@@ -1,26 +1,26 @@
 # Aparat for WordPress
 
 **Contributors:** `as911` \
-**Tags:** `aparat`, `embed`, `video`, `آپارات`, `ویدیو`, `widget`, `shortcode` \
+**Tags:** `aparat`, `embed`, `video`, `آپارات` \
 **Requires at least:** `4.0` \
-**Tested up to:** `6.0.1` \
-**Stable tag:** `2.2.0` \
+**Tested up to:** `6.4.3` \
+**Stable tag:** `2.2.1` \
 **Requires PHP:** `7.0` \
 **License:** `MIT License` \
 **License URI:** `https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE`
 
-Show a list of your Aparat channel's videos in your WordPress site.
+Displaying Aparat videos on website content, along with a widget for showing a list of channel videos.
 
 ## Description
 
-Aparat is one of the video-sharing services in Iran. With this plugin, you can add your Aparat videos to posts/pages/widgets in WordPress or show a list of them in the sidebar.
+Aparat is one of Iran's video-sharing services. With this plugin, you can easily add your Aparat videos to posts, pages, or widgets in WordPress, or display a list of them in widgets.
 
 Features include:
 
-*   Aparat widget to show a list of videos.
-*   Option to set the number of videos to show in widgets.
-*   Shortcode to show video from Aparat in posts/pages.
-*   Insert button in WordPress editor to add videos.
+*   Shortcode and Block feature to display Aparat videos within posts/pages.
+*   Aparat widget for showcasing a video list.
+*   Option to customize the number of videos displayed in widgets.
+*   Integration of an Aparat video button into the WordPress editor.
 
 ## Installation
 
@@ -60,6 +60,10 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 </p>
 
 ## Changelog
+
+### 2.2.1
+
+* Fix possible XSS security problems
 
 ### 2.2.0
 
