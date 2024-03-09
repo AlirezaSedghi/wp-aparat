@@ -1,29 +1,29 @@
 === Aparat for WordPress ===
 Contributors: as911
-Tags: aparat, embed, video, آپارات, ویدیو, widget, shortcode
+Tags: aparat, embed, video, آپارات
 Requires at least: 4.0
-Tested up to: 6.0.1
-Stable tag: 2.2.0
+Tested up to: 6.4.3
+Stable tag: 2.2.1
 Requires PHP: 7.0
 License: MIT License
 License URI: https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE
 
-Show a list of your Aparat channel's videos in your WordPress site.
+Displaying Aparat videos on website content, along with a widget for showing a list of channel videos.
 
 == Description ==
 
-Aparat is one of the video-sharing services in Iran. With this plugin, you can add your Aparat videos to posts/pages/widgets in WordPress or show a list of them in the sidebar.
+Aparat is one of Iran's video-sharing services. With this plugin, you can easily add your Aparat videos to posts, pages, or widgets in WordPress, or display a list of them in widgets.
 
 Features include:
 
-*   Aparat widget to show a list of videos.
-*   Option to set the number of videos to show in widgets.
-*   Shortcode to show video from Aparat in posts/pages.
-*   Insert button in WordPress editor to add videos.
+*   Shortcode and Block feature to display Aparat videos within posts/pages.
+*   Aparat widget for showcasing a video list.
+*   Option to customize the number of videos displayed in widgets.
+*   Integration of an Aparat video button into the WordPress editor.
 
 == Installation ==
 
-You can install Aparat for WordPress by either using the wordpress.org plugin directory or by directly uploading plugin files to your server.
+You can install Aparat for WordPress by either using wordpress.org plugin directory, or by directly uploading plugin files to your server.
 
 The first method:
 
@@ -50,22 +50,25 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 
 == Changelog ==
 
+= 2.2.1 =
+* Fix possible XSS security problems
+
 = 2.2.0 =
 * Add support of WordPress block editor (Gutenberg)
 
 = 2.1.0 =
-* Fix the problem with the video display
+* Fix the problem of video display
 * Fix the problem of displaying the channel video list
-* Improve the appearance of the widget display
+* Improve appearance of the widget display
 * Receiving thumbnails directly from the Aparat to avoid taking up space
 * Rewriting the codes of the section receiving information from Aparat to increase speed and solve problems
-* Compatible with previous version's settings
+* Compatible with previous versions settings
 * Release under the MIT license as an open-source plugin
 
 = 1.5 =
-* Options page in WordPress dashboard to configure settings.
+* Option page in WordPress dashboard to configure settings.
 * Add feature to set custom thumbnail.
-* Add a feature to set a custom width for shortcodes.
+* Add feature to set custom width for shortcodes.
 
 == Upgrade Notice ==
 

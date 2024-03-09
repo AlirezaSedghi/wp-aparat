@@ -3,8 +3,8 @@
 /*
 Plugin Name: Aparat for WordPress
 Plugin URI: https://alirezasedghi.com/plugins/aparat-for-wordPress/
-Description: Widget to show your Aparat channel videos in WordPress.
-Version: 2.2.0
+Description: Displaying Aparat videos on website content, along with a widget for showing a list of channel videos.
+Version: 2.2.1
 Author: Alireza Sedghi
 Author URI: https://alirezasedghi.com
 Text Domain: wp-aparat
@@ -17,11 +17,11 @@ if ( !defined( 'ABSPATH' ) ) {
     die('Forbidden');
 }
 
-$wp_aparat_plugin_version = '2.2.0';
+$wp_aparat_plugin_version = '2.2.1';
 
 // Translation of plugin description
 $dummy_name = __( "Aparat for WordPress", "wp-aparat" );
-$dummy_description = __( "Widget to show your Aparat channel videos in WordPress.", "wp-aparat" );
+$dummy_description = __( "Displaying Aparat videos on website content, along with a widget for showing a list of channel videos.", "wp-aparat" );
 $dummy_author = __( "Alireza Sedghi", "wp-aparat" );
 
 // Load plugin settings
@@ -131,17 +131,25 @@ function wp_aparat_shortcode($atts) {
 		), $atts )
 	);
 
-    $id = $id ?? '';
+    $id = !empty($id) ? preg_replace('/[^a-z]/i', '', $id) : '';
     $width = $width ?? "full";
 
     if ( is_numeric($width) ) {
+        $width = intval($width);
         $height = intval(9 * $width / 16);
         return "<iframe src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width}' height='{$height}' allowfullscreen='true' class='aparat-frame'></iframe>";
     }
 
-    $width_percent = ( $width == "full" ) ? "100%" : "50%";
+    if ( $width == "full" ) {
+        $width_percent = "100%";
+        $width_percent_name = "full";
+    }
+    else {
+        $width_percent = "50%";
+        $width_percent_name = "half";
+    }
     $iframe_id = uniqid();
-    return "<iframe id='wp-aparat-{$iframe_id}' src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width_percent}' allowfullscreen='true' class='aparat-frame aparat-{$width}-frame'></iframe>";
+    return "<iframe id='wp-aparat-{$iframe_id}' src='https://www.aparat.com/video/video/embed/videohash/{$id}/vt/frame' width='{$width_percent}' allowfullscreen='true' class='aparat-frame aparat-{$width_percent_name}-frame'></iframe>";
 }
 add_shortcode( 'aparat', 'wp_aparat_shortcode' );
 

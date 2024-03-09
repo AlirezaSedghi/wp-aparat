@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Aparat for WordPress\n"
-"POT-Creation-Date: 2022-07-22 12:47+0430\n"
-"PO-Revision-Date: 2022-07-22 12:47+0430\n"
+"POT-Creation-Date: 2024-03-07 21:43+0330\n"
+"PO-Revision-Date: 2024-03-07 21:44+0330\n"
 "Last-Translator: \n"
 "Language-Team: HREF\n"
 "Language: fa_IR\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_html;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -19,13 +19,19 @@ msgstr ""
 msgid "Aparat for Wordpress"
 msgstr "آپارات برای وردپرس"
 
-#: AparatWidget.php:10
-msgid "Show your Aparat channel's videos on sidebar or footer"
-msgstr "ویدیوهای کانال آپارات خود را در ستون‌کناری یا فوتر سایت نمایش دهید"
+#: AparatWidget.php:10 aparat.php:24
+msgid ""
+"Displaying Aparat videos on website content, along with a widget for showing "
+"a list of channel videos."
+msgstr ""
+"نمایش ویدیوهای آپارات در محتوای وبسایت، به همراه ابزارک نمایش لیست ویدیوهای "
+"کانال."
 
 #: AparatWidget.php:38
-msgid "Channel ID is incorrect or access to APARAT.com is currently unavailable."
-msgstr "شناسه کانال نامعتبر است یا درحال حاضر دسترسی به Aparat.com غیرممکن می‌باشد."
+msgid ""
+"Channel ID is incorrect or access to APARAT.com is currently unavailable."
+msgstr ""
+"شناسه کانال نامعتبر است یا درحال حاضر دسترسی به Aparat.com غیرممکن می‌باشد."
 
 #: AparatWidget.php:86
 msgid "My Aparat Videos"
@@ -87,21 +93,17 @@ msgstr "بازکردن پیوند در همان صفحه"
 msgid "One Third"
 msgstr "یک سوم"
 
-#: aparat-admin.php:112 aparat.php:97 assets/js/wp-aparat-block.js:77
+#: aparat-admin.php:112 aparat.php:97 assets/js/wp-aparat-block.js:79
 msgid "Half"
 msgstr "یک دوم"
 
-#: aparat-admin.php:115 aparat.php:96 assets/js/wp-aparat-block.js:76
+#: aparat-admin.php:115 aparat.php:96 assets/js/wp-aparat-block.js:78
 msgid "Full"
 msgstr "کامل"
 
 #: aparat-admin.php:119
 msgid "Image size of each video in the widget. Default: one third"
 msgstr "اندازه تصویر هر ویدیو در ابزارک. پیش‌فرض: یک سوم"
-
-#: aparat.php:24
-msgid "Widget to show your Aparat channel videos in WordPress."
-msgstr "ابزارک نمایش ویدیوهای کانال آپارات شما در وردپرس."
 
 #: aparat.php:25
 msgid "Alireza Sedghi"
@@ -115,23 +117,24 @@ msgstr "افزودن ویدیوی آپارات"
 msgid "ID:"
 msgstr "شناسه:"
 
-#: aparat.php:93 assets/js/wp-aparat-block.js:53
+#: aparat.php:93 assets/js/wp-aparat-block.js:55
 msgid "Insert Aparat video ID:"
 msgstr "شناسه ویدیوی آپارات را درج کنید:"
 
-#: aparat.php:94 assets/js/wp-aparat-block.js:54
+#: aparat.php:94 assets/js/wp-aparat-block.js:56
 msgid "for example, the ID of https://www.aparat.com/v/13spN is: 13spN"
-msgstr "به‌عنوان مثال شناسه ویدیوی https://www.aparat.com/v/13spN عبارت است از: 13spN"
+msgstr ""
+"به‌عنوان مثال شناسه ویدیوی https://www.aparat.com/v/13spN عبارت است از: 13spN"
 
 #: aparat.php:95
 msgid "Width:"
 msgstr "طول تصویر:"
 
-#: aparat.php:98 assets/js/wp-aparat-block.js:65
+#: aparat.php:98 assets/js/wp-aparat-block.js:67
 msgid "Select the width of the video."
 msgstr "اندازه نمایش ویدیو را انتخاب نمایید."
 
-#: aparat.php:99 assets/js/wp-aparat-block.js:66
+#: aparat.php:99 assets/js/wp-aparat-block.js:68
 msgid "The default width is full size"
 msgstr "اندازه پیش‌فرض: کامل"
 
@@ -139,21 +142,27 @@ msgstr "اندازه پیش‌فرض: کامل"
 msgid "Embed Aparat video in the content"
 msgstr "جاسازی ویدیوی آپارات در محتوا"
 
-#: assets/js/wp-aparat-block.js:51
+#: assets/js/wp-aparat-block.js:53
 msgid "Aparat video"
 msgstr "ویدیوی آپارات"
 
-#: assets/js/wp-aparat-block.js:56
+#: assets/js/wp-aparat-block.js:58
 msgid "Aparat video ID..."
 msgstr "شناسه ویدیوی آپارات..."
 
-#: assets/js/wp-aparat-block.js:68
+#: assets/js/wp-aparat-block.js:70
 msgid "Choose width"
 msgstr "انتخاب اندازه"
 
 #: templates/widget-item.php:15
 msgid "visits"
 msgstr "بازدید"
+
+#~ msgid "Show your Aparat channel's videos on sidebar or footer"
+#~ msgstr "ویدیوهای کانال آپارات خود را در ستون‌کناری یا فوتر سایت نمایش دهید"
+
+#~ msgid "Widget to show your Aparat channel videos in WordPress."
+#~ msgstr "ابزارک نمایش ویدیوهای کانال آپارات شما در وردپرس."
 
 #~ msgid "Custom Thumbnail"
 #~ msgstr "تصویر دلخواه"
@@ -167,8 +176,12 @@ msgstr "بازدید"
 #~ msgid "Use default thumbnail"
 #~ msgstr "استفاده از تصویر پیش‌فرض"
 
-#~ msgid "this thumbnail will shown when video thumbnail have a problem or not exist."
-#~ msgstr "این تصویر هنگامی که تصویر ویدیو دارای مشکلی باشد و یا وجود نداشته باشد نمایش داده میشود."
+#~ msgid ""
+#~ "this thumbnail will shown when video thumbnail have a problem or not "
+#~ "exist."
+#~ msgstr ""
+#~ "این تصویر هنگامی که تصویر ویدیو دارای مشکلی باشد و یا وجود نداشته باشد "
+#~ "نمایش داده میشود."
 
 #~ msgid "Custom image"
 #~ msgstr "تصویر دلخواه"
@@ -194,14 +207,20 @@ msgstr "بازدید"
 #~ msgid "set your custom width of thumbnails. Default: 139"
 #~ msgstr "اندازه دلخواه خود را برای تصویر تنظیم کنید. پیش‌فرض: 139"
 
-#~ msgid "* note: this just increase the size of picture for better quality, and doesn't change the width of thumbnail in display!"
-#~ msgstr "* نکته: این گزینه تنها اندازه تصویر را برای کیفیت بهتر تغییر میدهد، و هیچ تغییری در اندازه نمایش تصویر ایجاد نمیکند!"
+#~ msgid ""
+#~ "* note: this just increase the size of picture for better quality, and "
+#~ "doesn't change the width of thumbnail in display!"
+#~ msgstr ""
+#~ "* نکته: این گزینه تنها اندازه تصویر را برای کیفیت بهتر تغییر میدهد، و هیچ "
+#~ "تغییری در اندازه نمایش تصویر ایجاد نمیکند!"
 
 #~ msgid "height value is auto generated by width value."
 #~ msgstr "مقدار ارتفاع به‌صورت خودکار بر اساس مقدار طول محاسبه  میشود."
 
-#~ msgid "to increase size of picture in display change this option. Default: 35 %"
-#~ msgstr "برای افزایش اندازه نمایش تصویر این گزینه را تغییر دهید. پیش‌فرض: 35 %"
+#~ msgid ""
+#~ "to increase size of picture in display change this option. Default: 35 %"
+#~ msgstr ""
+#~ "برای افزایش اندازه نمایش تصویر این گزینه را تغییر دهید. پیش‌فرض: 35 %"
 
 #~ msgid "Widget settings configuration"
 #~ msgstr "پیکربندی تنظیمات ابزارک"

@@ -7,7 +7,7 @@ class AparatWidget extends WP_Widget {
      * Construction
      */
     function __construct() {
-        parent::__construct( 'wpaparat_widget', __('Aparat for Wordpress', 'wp-aparat'), array( 'description' => __( "Show your Aparat channel's videos on sidebar or footer", 'wp-aparat' ), ) );
+        parent::__construct( 'wpaparat_widget', __('Aparat for Wordpress', 'wp-aparat'), array( 'description' => __( "Displaying Aparat videos on website content, along with a widget for showing a list of channel videos.", 'wp-aparat' ), ) );
     }
 
     /**

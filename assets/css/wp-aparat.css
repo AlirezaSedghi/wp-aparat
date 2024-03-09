@@ -114,7 +114,6 @@ Aparat for Wordpress plugin by Alireza Sedghi licenced by alirezasedghi.com
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: auto;
 }
 .wp-aparat-box > li.aparat-feed-item .aparat-item-info .aparat-item-details span {
     font-size: 1em;
