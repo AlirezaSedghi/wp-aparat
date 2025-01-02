@@ -36,7 +36,11 @@ $wp_aparat_plugin_languages_path = $wp_aparat_plugin_path . '/languages';
 $wp_aparat_plugin_url = plugin_dir_url( __FILE__ );
 
 // Load languages
-load_plugin_textdomain( 'wp-aparat', false, $wp_aparat_plugin_languages_path );
+function load_aparat_text_domain() {
+    global $wp_aparat_plugin_languages_path;
+    load_plugin_textdomain( 'wp-aparat', false, $wp_aparat_plugin_languages_path );
+}
+add_action('init', 'load_aparat_text_domain');
 
 // Load files
 require_once('functions.php');
@@ -124,12 +128,12 @@ add_filter( 'body_class', 'wp_aparat_body_class' );
  * @return string
  */
 function wp_aparat_shortcode($atts) {
-	extract(
-		shortcode_atts( array(
-			'id'		=> '',
-			'width'		=> 'full',
-		), $atts )
-	);
+    extract(
+        shortcode_atts( array(
+            'id'		=> '',
+            'width'		=> 'full',
+        ), $atts )
+    );
 
     $id = !empty($id) ? preg_replace('/[^0-9a-zA-Z]/i', '', $id) : '';
     $width = $width ?? "full";
@@ -160,8 +164,8 @@ add_shortcode( 'aparat', 'wp_aparat_shortcode' );
  * @return mixed
  */
 function wp_aparat_editor_button($buttons) {
-	array_push($buttons, "separator", "aparat_shortcode");
-	return $buttons;
+    array_push($buttons, "separator", "aparat_shortcode");
+    return $buttons;
 }
 add_filter('mce_buttons', 'wp_aparat_editor_button', 0);
 
