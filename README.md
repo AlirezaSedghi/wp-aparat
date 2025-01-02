@@ -3,8 +3,8 @@
 **Contributors:** `as911` \
 **Tags:** `aparat`, `embed`, `video`, `آپارات` \
 **Requires at least:** `4.0` \
-**Tested up to:** `6.4.3` \
-**Stable tag:** `2.2.2` \
+**Tested up to:** `6.7.1` \
+**Stable tag:** `2.2.3` \
 **Requires PHP:** `7.0` \
 **License:** `MIT License` \
 **License URI:** `https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE`
