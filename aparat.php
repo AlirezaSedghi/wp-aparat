@@ -17,7 +17,7 @@ if ( !defined( 'ABSPATH' ) ) {
     die('Forbidden');
 }
 
-$wp_aparat_plugin_version = '2.2.2';
+$wp_aparat_plugin_version = '2.2.3';
 
 // Translation of plugin description
 $dummy_name = __( "Aparat for WordPress", "wp-aparat" );
