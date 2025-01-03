@@ -4,7 +4,7 @@
 **Tags:** `aparat`, `embed`, `video`, `آپارات` \
 **Requires at least:** `4.0` \
 **Tested up to:** `6.7.1` \
-**Stable tag:** `2.2.3` \
+**Stable tag:** `2.2.4` \
 **Requires PHP:** `7.0` \
 **License:** `MIT License` \
 **License URI:** `https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE`
@@ -60,6 +60,14 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 </p>
 
 ## Changelog
+
+### 2.2.4
+
+* Fix issue of widget links
+
+### 2.2.3
+
+* Fix issue of initializing load_plugin_textdomain
 
 ### 2.2.2
 

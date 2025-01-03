@@ -1,6 +1,6 @@
 <?php
 $videoTitle = $videoData["title"] ?? '';
-$videoLink = "https://www.aparat.com/v/" . ($videoData["title"] ?? '');
+$videoLink = "https://www.aparat.com/v/" . ($videoData["uid"] ?? '');
 ?>
 <li class="aparat-feed-item<?php echo " aparat-feed-item-" . ($lastVideoIndex + 1); ?>">
     <figure class="aparat-item-figure <?php echo $figure_size; ?>">

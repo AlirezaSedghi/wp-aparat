@@ -2,8 +2,8 @@
 Contributors: as911
 Tags: aparat, embed, video, آپارات
 Requires at least: 4.0
-Tested up to: 6.4.3
-Stable tag: 2.2.2
+Tested up to: 6.7.1
+Stable tag: 2.2.4
 Requires PHP: 7.0
 License: MIT License
 License URI: https://github.com/AlirezaSedghi/wp-aparat/blob/main/LICENSE
@@ -49,6 +49,12 @@ All developments are happening on [plugin's GitHub repository](https://github.co
 2. Preview of video insert box in post/page on the classic editor (TinyMCE) ( Persian Language )
 
 == Changelog ==
+
+= 2.2.2 =
+* Fix issue of widget links
+
+= 2.2.3 =
+* Fix issue of initializing load_plugin_textdomain
 
 = 2.2.2 =
 * Fix issue of show some Aparat videos
